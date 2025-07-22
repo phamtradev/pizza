@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CardPizza from "../sections/CardPizza";
 import type { Pizza } from "../models/pizza.model";
-import CountPizza from "../sections/CountPizza";
+import ButtonField from "../components/ButtonField";
 
 const HomePage = () => {
   const [pizzas, setPizzas] = useState<Pizza[]>([]);
@@ -28,24 +28,9 @@ const HomePage = () => {
             />
           ))}
         </div>
-        <button
-          onClick={() => setIsCount(true)}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-3 rounded cursor-pointer text-sm"
-        >
-          Open Count
-        </button>
-        <button
-          onClick={() => setIsCount(false)}
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-1.5 px-3 rounded cursor-pointer text-sm"
-        >
-          Close count
-        </button>
-
-        {isCount && (
-          <CountPizza count={count} setCount={(count) => setCount(count)} />
-        )}
-        <br />
-        {count}
+        <div className="mt-2">
+          <ButtonField>Show more</ButtonField>
+        </div>
       </div>
     </>
   );
